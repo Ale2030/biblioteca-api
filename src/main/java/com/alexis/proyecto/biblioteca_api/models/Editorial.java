@@ -33,10 +33,11 @@ public class Editorial {
     @Column(nullable = false)
     private String oficinaEditorial;
 
-    /* Campo Editorial esta activa. */
-    private Boolean activo = true;
-
     /* Lista de libros asociados. */
     @OneToMany(mappedBy = "editorial", cascade = CascadeType.ALL)
     private List<Libro> libros;
+
+      /* Campo Editorial esta activa. */
+      private Boolean activo = true;
+
 }

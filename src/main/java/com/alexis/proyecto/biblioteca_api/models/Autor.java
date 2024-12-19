@@ -21,7 +21,7 @@ public class Autor {
     /* ID unico del Autor */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     /* Nombre completo del Autor. */
     @Column(nullable = false, length = 100)
@@ -35,5 +35,8 @@ public class Autor {
 
     /* Biografia del autor. */
     private String biografia;
+
+     /* Campo Autor esta activo.*/
+     private Boolean activo = true;
 
 }
