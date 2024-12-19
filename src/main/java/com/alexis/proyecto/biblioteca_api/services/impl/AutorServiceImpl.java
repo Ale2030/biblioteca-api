@@ -18,11 +18,11 @@ public class AutorServiceImpl implements AutorService {
 
     @Override
     public List<Autor> getAutores() {
-        List<Autor> autores = (List<Autor>) ar.findAll();
-        List<Autor> autoresActivos = autores.stream()
+        List<Autor> libros = (List<Autor>) ar.findAll();
+        List<Autor> librosActivos = libros.stream()
                 .filter(libro -> libro.getActivo())
                 .collect(Collectors.toList());
-        return autoresActivos;
+        return librosActivos;
     }
 
     @Override
