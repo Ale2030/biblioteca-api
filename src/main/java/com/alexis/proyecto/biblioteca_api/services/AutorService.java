@@ -24,7 +24,7 @@ public interface AutorService {
      * @param idAutor ID del {@link Autor} a buscar.
      * @return Un {@link Autor} buscado por ID.
      */
-    Autor geAutorById(Integer idAutor);
+    Autor getAutorById(Integer idAutor);
 
     /**
      * Crea una instancia de un {@link Autor}.
