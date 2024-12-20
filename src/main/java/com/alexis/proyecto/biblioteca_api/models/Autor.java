@@ -21,7 +21,7 @@ public class Autor {
     /* ID unico del Autor */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idAutor;
 
     /* Nombre completo del Autor. */
     @Column(nullable = false, length = 100)

@@ -23,7 +23,7 @@ public class Editorial {
     /* ID unico de la Editorial. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idEditorial;
 
     /* Nombre Editorial. */
     @Column(nullable = false)
