@@ -10,6 +10,13 @@ import com.alexis.proyecto.biblioteca_api.models.Autor;
 import com.alexis.proyecto.biblioteca_api.repositories.AutorRepository;
 import com.alexis.proyecto.biblioteca_api.services.AutorService;
 
+/**
+ * Servicio que implementa la logica de negocio relacionada con la entidad
+ * {@link Autor}.
+ * Esta clase utiliza e implementa {@link AutorService}.
+ *
+ * @author Alex
+ */
 @Service
 public class AutorServiceImpl implements AutorService {
 
@@ -18,15 +25,15 @@ public class AutorServiceImpl implements AutorService {
 
     @Override
     public List<Autor> getAutores() {
-        List<Autor> libros = (List<Autor>) ar.findAll();
-        List<Autor> librosActivos = libros.stream()
+        List<Autor> autores = (List<Autor>) ar.findAll();
+        List<Autor> autoresActivos = autores.stream()
                 .filter(libro -> libro.getActivo())
                 .collect(Collectors.toList());
-        return librosActivos;
+        return autoresActivos;
     }
 
     @Override
-    public Autor geAutorById(Integer idAutor) {
+    public Autor getAutorById(Integer idAutor) {
         Autor autor = ar.findById(idAutor).get();
         return autor;
     }
@@ -45,6 +52,9 @@ public class AutorServiceImpl implements AutorService {
         autorExistente.setFechaNacimiento(autor.getFechaNacimiento());
         autorExistente.setNacionalidad(autor.getNacionalidad());
         autorExistente.setBiografia(autor.getBiografia());
+
+        ar.save(autorExistente);
+
         return autorExistente;
     }
 
@@ -54,7 +64,6 @@ public class AutorServiceImpl implements AutorService {
 
         autor.setActivo(false);
         ar.save(autor);
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAutor'");
     }
 
 }

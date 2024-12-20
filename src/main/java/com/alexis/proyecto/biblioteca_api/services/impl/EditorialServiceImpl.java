@@ -9,6 +9,14 @@ import com.alexis.proyecto.biblioteca_api.models.Editorial;
 import com.alexis.proyecto.biblioteca_api.repositories.EditorialRepository;
 import com.alexis.proyecto.biblioteca_api.services.EditorialService;
 
+/**
+ * Servicio que implementa la logica de negocio relacionada con la entidad
+ * {@link Editorial}.
+ * Esta clase utiliza e implementa {@link EditorialService}.
+ * 
+ * @author Alex
+ */
+
 @Service
 public class EditorialServiceImpl implements EditorialService {
 

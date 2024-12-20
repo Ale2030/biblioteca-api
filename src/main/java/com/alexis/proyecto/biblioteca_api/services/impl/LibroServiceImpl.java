@@ -9,6 +9,13 @@ import com.alexis.proyecto.biblioteca_api.models.Libro;
 import com.alexis.proyecto.biblioteca_api.repositories.LibroRepository;
 import com.alexis.proyecto.biblioteca_api.services.LibroService;
 
+/**
+ * Servicio que implementa la logica de negocio relacionada con la entidad
+ * {@link Libro}.
+ * Esta clase utiliza e implementa {@link LibroService}.
+ * 
+ * @author Alex
+ */
 @Service
 public class LibroServiceImpl implements LibroService {
 
