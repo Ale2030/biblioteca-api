@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Sistema de Biblioteca Digital - API v1.0</h1>
+    <p>
+        Bienvenido a la API del Sistema de Biblioteca Digital. Esta API permite gestionar libros, autores y editoriales
+        con endpoints REST para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar).
+    </p>
+
+    <h2>Entidades Disponibles</h2>
+    <ul>
+        <li><strong>Libro:</strong> Representa un libro de la biblioteca, con atributos como título, autor y editorial.
+        </li>
+        <li><strong>Autor:</strong> Representa a los autores registrados en la biblioteca.</li>
+        <li><strong>Editorial:</strong> Representa las editoriales asociadas a los libros.</li>
+    </ul>
+
+    <h2>Endpoints Disponibles</h2>
+    <h3>Libros</h3>
+    <ul>
+        <li>
+            <code>GET /api/v1/libros</code><br>
+            Devuelve una lista de todos los libros registrados.
+        </li>
+        <li>
+            <code>GET /api/v1/libros/{id}</code><br>
+            Devuelve los detalles del libro con el ID especificado.
+        </li>
+        <li>
+            <code>POST /api/v1/libros</code><br>
+            Crea un nuevo libro. (Enviar datos como JSON en el cuerpo de la solicitud)
+        </li>
+        <li>
+            <code>PUT /api/v1/libros/{id}</code><br>
+            Actualiza los datos del libro con el ID especificado. (Enviar datos como JSON en el cuerpo de la solicitud)
+        </li>
+        <li>
+            <code>DELETE /api/v1/libros/{id}</code><br>
+            Elimina el libro con el ID especificado.
+        </li>
+    </ul>
+
+    <h3>Autores</h3>
+    <ul>
+        <li>
+            <code>GET /api/v1/autores</code><br>
+            Devuelve una lista de todos los autores registrados.
+        </li>
+        <li>
+            <code>GET /api/v1/autores/{id}</code><br>
+            Devuelve los detalles del autor con el ID especificado.
+        </li>
+        <li>
+            <code>POST /api/v1/autores</code><br>
+            Crea un nuevo autor. (Enviar datos como JSON en el cuerpo de la solicitud)
+        </li>
+        <li>
+            <code>PUT /api/v1/autores/{id}</code><br>
+            Actualiza los datos del autor con el ID especificado. (Enviar datos como JSON en el cuerpo de la solicitud)
+        </li>
+        <li>
+            <code>DELETE /api/v1/autores/{id}</code><br>
+            Elimina el autor con el ID especificado.
+        </li>
+    </ul>
+
+    <h3>Editoriales</h3>
+    <ul>
+        <li>
+            <code>GET /api/v1/editoriales</code><br>
+            Devuelve una lista de todas las editoriales registradas.
+        </li>
+        <li>
+            <code>GET /api/v1/editoriales/{id}</code><br>
+            Devuelve los detalles de la editorial con el ID especificado.
+        </li>
+        <li>
+            <code>POST /api/v1/editoriales</code><br>
+            Crea una nueva editorial. (Enviar datos como JSON en el cuerpo de la solicitud)
+        </li>
+        <li>
+            <code>PUT /api/v1/editoriales/{id}</code><br>
+            Actualiza los datos de la editorial con el ID especificado. (Enviar datos como JSON en el cuerpo de la
+            solicitud)
+        </li>
+        <li>
+            <code>DELETE /api/v1/editoriales/{id}</code><br>
+            Elimina la editorial con el ID especificado.
+        </li>
+    </ul>
+
+    <h2>Detalles Técnicos</h2>
+    <p>
+        La API está implementada usando Spring Boot y MariaDB. Soporta formato JSON para las solicitudes y respuestas.
+        Los endpoints están protegidos para evitar acceso no autorizado (si configuraste Spring Security).
+    </p>
+
+    <h2>Ejemplos de Peticiones</h2>
+    <p>
+        Para obtener todos los libros registrados en el sistema, realiza una petición GET a:
+    </p>
+    <p>
+        Libros:
+        <a href="/api/v1/libros" target="_blank">/api/v1/libros</a><br>
+    </p>
+    <p>
+        Autores:
+        <a href="/api/v1/autores" target="_blank">/api/v1/autores</a><br>
+    </p>
+    <p>
+        Editoriales:
+        <a href="/api/v1/editoriales" target="_blank">/api/v1/editoriales</a>
+    </p>
+</body>
+
+</html>
