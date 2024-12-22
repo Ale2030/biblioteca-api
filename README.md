@@ -14,23 +14,28 @@ Este proyecto es una **API RESTful** desarrollada en **Spring Boot**, que permit
 ## 🗂️ Estructura del Proyecto
 ### Entidades Principales
 1. **Libro**
-   - `id`: Identificador único.
+   - `idLibro`: Identificador único.
+   - `genero`: Genero del libro.
    - `titulo`: Título del libro.
-   - `isbn`: Código ISBN del libro.
    - `idAutor`: Relación con el autor.
    - `idEditorial`: Relación con la editorial.
    - `fechaPublicacion`: Fecha de publicación.
+   - `activo`: Indica si el libro está disponible o activo en el sistema. (Valor booleano: true para activo, false para inactivo).
 
 2. **Autor**
-   - `id`: Identificador único.
-   - `nombre`: Nombre del autor.
-   - `apellido`: Apellido del autor.
+   - `idAutor`: Identificador único.
+   - `nombre`: Nombre completo del autor.
+   - `fechaNacimiento`: Fecha de nacimento del autor.
+   - `nacionalidad`: Nacionalidad del autor.
    - `biografia`: Breve descripción del autor.
+   - `activo`:Indica si el autor está disponible o activo en el sistema. (Valor booleano: true para activo, false para inactivo).
 
 3. **Editorial**
-   - `id`: Identificador único.
-   - `nombre`: Nombre de la editorial.
-   - `pais`: País de origen de la editorial.
+   - `idEditorial`: Identificador único.
+   - `nombreEditorial`: Nombre de la editorial.
+   - `oficinaEditorial`: Oficinas de la editorial.
+   - `idLibro`: Relacion con el libro.
+   - `activo`:Indica si la editorial está disponible o activo en el sistema. (Valor booleano: true para activo, false para inactivo).
 
 ---
 
@@ -71,5 +76,5 @@ Este proyecto es una **API RESTful** desarrollada en **Spring Boot**, que permit
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/Ale2030/libreria-api.git
-   cd libreria-api
+   git clone https://github.com/Ale2030/biblioteca-api.git
+   cd biblioteca-api
