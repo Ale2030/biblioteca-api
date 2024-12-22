@@ -1,6 +1,7 @@
 package com.alexis.proyecto.biblioteca_api.services.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +26,19 @@ public class LibroServiceImpl implements LibroService {
     @Override
     public List<Libro> getLibros() {
         List<Libro> libros = (List<Libro>) lr.findAll();
-        return libros;
+
+         List<Libro> librosActivos = libros.stream()
+                .filter(libro -> libro.getActivo())
+                .collect(Collectors.toList());
+        return librosActivos;
     }
 
     @Override
     public Libro getLibroById(Integer idLibro) {
         Libro libro = lr.findById(idLibro).get();
+        if (!libro.getActivo()) {
+            throw new IllegalArgumentException("El libro no se encontro.");
+        }
         return libro;
     }
 
@@ -60,7 +68,6 @@ public class LibroServiceImpl implements LibroService {
     @Override
     public void deleteLibro(Integer idLibro) {
         Libro libro = lr.findById(idLibro).get();
-
         libro.setActivo(false);
         lr.save(libro);
     }

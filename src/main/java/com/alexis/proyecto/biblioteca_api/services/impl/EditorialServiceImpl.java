@@ -1,10 +1,9 @@
 package com.alexis.proyecto.biblioteca_api.services.impl;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.alexis.proyecto.biblioteca_api.models.Editorial;
 import com.alexis.proyecto.biblioteca_api.repositories.EditorialRepository;
 import com.alexis.proyecto.biblioteca_api.services.EditorialService;
@@ -40,13 +39,21 @@ public class EditorialServiceImpl implements EditorialService {
     @Override
     public Editorial getEditorialById(Integer idEditorial) {
         Editorial editorial = er.findById(idEditorial).get();
+        if (!editorial.getActivo()) {
+            throw new IllegalArgumentException("La editorial no se encontro.");
+        }
         return editorial;
     }
 
     @Override
     public List<Editorial> getEditoriales() {
         List<Editorial> editoriales = (List<Editorial>) er.findAll();
-        return editoriales;
+
+        List<Editorial> editorialesActivos = editoriales.stream()
+                .filter(editorial -> editorial.getActivo())
+                .collect(Collectors.toList());
+
+        return editorialesActivos;
     }
 
     @Override

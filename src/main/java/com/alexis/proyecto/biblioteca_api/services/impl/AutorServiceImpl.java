@@ -2,10 +2,8 @@ package com.alexis.proyecto.biblioteca_api.services.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.alexis.proyecto.biblioteca_api.models.Autor;
 import com.alexis.proyecto.biblioteca_api.repositories.AutorRepository;
 import com.alexis.proyecto.biblioteca_api.services.AutorService;
@@ -27,7 +25,7 @@ public class AutorServiceImpl implements AutorService {
     public List<Autor> getAutores() {
         List<Autor> autores = (List<Autor>) ar.findAll();
         List<Autor> autoresActivos = autores.stream()
-                .filter(libro -> libro.getActivo())
+                .filter(autor -> autor.getActivo())
                 .collect(Collectors.toList());
         return autoresActivos;
     }
@@ -35,7 +33,12 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public Autor getAutorById(Integer idAutor) {
         Autor autor = ar.findById(idAutor).get();
+        if (!autor.getActivo()) {
+            throw new IllegalArgumentException("El autor no se encontro.");
+        }
+
         return autor;
+
     }
 
     @Override
