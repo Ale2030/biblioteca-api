@@ -2,6 +2,9 @@ package com.alexis.proyecto.biblioteca_api.models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,14 +42,17 @@ public class Libro {
     private Autor autor;
 
     /* Entidad de Editorial asociada. */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({ "libros" })
     @JoinColumn(name = "id_editorial", nullable = true)
+
     private Editorial editorial;
 
     /* Fecha en que fue publicado el libro. */
     private LocalDate fechaPublicacion;
 
     /* Campo para saber si el registro esta activo. */
+    @JsonIgnore
     private Boolean activo = true;
 
 }

@@ -2,6 +2,8 @@ package com.alexis.proyecto.biblioteca_api.models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +38,8 @@ public class Autor {
     /* Biografia del autor. */
     private String biografia;
 
-     /* Campo Autor esta activo.*/
-     private Boolean activo = true;
+    /* Campo Autor esta activo. */
+    @JsonIgnore
+    private Boolean activo = true;
 
 }
