@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alexis.proyecto</groupId>
-	<artifactId>biblioteca-api</artifactId>
+	<artifactId>libreria-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Sistema de Biblioteca Digital</name>
+	<name>Sistema de Libreria Digital</name>
 	<description>API Libreria</description>
 	<url/>
 	<licenses>
@@ -62,7 +62,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
